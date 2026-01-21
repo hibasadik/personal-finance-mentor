@@ -20,7 +20,6 @@ This system creates a "Council of Agents" to assist the user. It uses an LLM onl
 3.  **Purchase Impact Agent**: The "Simulator". When you want to buy something, it runs a simulation to see if you can afford it without breaking your budget or savings goals.
 4.  **Mentor Reasoning Agent**: The "Voice". It takes the mathematical output from the simulator and explains it in plain English, offering advice and alternatives.
 5.  **Reflection Agent**: The "Coach". It reviews historical spending data to surface behavioral patterns and long-term insights (e.g., “You tend to overspend on weekends”).
-Note: In the current prototype, reflection insights are informational; future versions will use these insights to adapt guidance strategies over time.
 
 ## ⚠️ ETHICAL & SAFETY DISCLAIMER
 > [!WARNING]
@@ -30,6 +29,13 @@ Note: In the current prototype, reflection insights are informational; future ve
 > - **No Legal/Tax Advice**: Consult a professional for tax or legal matters.
 > - **No Guarantees**: Financial decisions are ultimately the user's responsibility.
 
+## 🧠 LLM Integration Philosophy
+
+The system is intentionally designed so that:
+- All financial calculations and decisions are deterministic and explainable.
+- The LLM is used only for reasoning, explanation, and coaching-style feedback.
+- If external LLM inference is unavailable (e.g., Hugging Face free-tier limits), the system gracefully falls back to a deterministic mock mode without loss of core functionality.
+
 ## 🛠 Setup & Run
 ### Prerequisites
 - Python 3.9+
@@ -37,11 +43,15 @@ Note: In the current prototype, reflection insights are informational; future ve
 
 ### Installation
 1. Clone the repository.
-2. Install dependencies:
+2. Navigate to the project directory:
+   ```bash
+   cd finance-mentor-agent
+   ```
+3. Install dependencies:
    ```bash
    pip install streamlit
    ```
-3. Set your Token (Optional but Recommended):
+4. Set your Token (Optional but Recommended):
    ```bash
    # Windows PowerShell
    $env:HF_TOKEN="your-hf-token-here"
