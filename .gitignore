@@ -1,0 +1,16 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+env/
+venv/
+
+# Environment Variables (Secrets)
+.env
+
+# Data (Personal Information)
+finance_data.json
+*/finance_data.json
+
+# Logs
+*.log
